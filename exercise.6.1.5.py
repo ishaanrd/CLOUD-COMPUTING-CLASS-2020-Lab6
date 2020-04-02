@@ -46,9 +46,11 @@ zoneStrings = []
 for zone in zones:
     zoneStrings.append(zone.name)
     
-lb = conn_elb.create_load_balancer(elastic_load_balancer['name'],
-                                       zoneStrings,
-                                       elastic_load_balancer['connection_forwarding'])
+lb = conn_elb.create_load_balancer(LoadBalancerName=elastic_load_balancer['name'],
+                                    AvailabilityZones=zoneStrings,
+                                       Listeners=elastic_load_balancer['connection_forwarding'],
+                                       SecurityGroups=['load-balancer-sg']
+                                       Tags=[{'Project':'ccbda bootstrap','Cost-center':'laboratory'}])
 conn_as.create_launch_configuration(lc)
 
 ag = AutoScalingGroup(group_name=autoscaling_group['name'], load_balancers=[elastic_load_balancer['name']],
