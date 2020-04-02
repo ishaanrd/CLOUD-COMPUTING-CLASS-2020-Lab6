@@ -47,13 +47,13 @@ Best usage of load balancing is when used in parallel with auto-scaling, since i
 `Answer:` The URL loads the index.html file and invokes the 'Loading function' of the lambda function associated with the API gateway.
 
 #### Q622. Does the reply of the above URL match what it should be expected? Why?
-`Answer:` Yes the reply matches the expectation. The index.html file defines its layout on the front-end and the associated lambda function establishes the connection with the Dynamo DB at the back-end.
+`Answer:` Yes, the reply of the URL matches the expectation as defined. The index.html file determines its layout on the front-end and the associated lambda function establishes the connection with the Dynamo DB at the back-end.
 
 #### Q623. Explain what happens (actions and parts activated) when you type the URL in your browser to obtain the page updated with the shopping list.
-`Answer:`
+`Answer:` This invokes the GET Item API gateway call to the Dynamo DB at the backend and pulls the contents of the shopping-list DB to the browser in the format defined by the script.js file.
 
 #### Q624. Explain what happens (actions and parts activated) when you type a new item in the New Thing box.
-`Answer:`
+`Answer:` On clicking the 'add someThing else' button, the POST Item API gateway call is invoked to the Dynamo DB at the backend and the contents of the text box in the browser are fetched and added as a new item in the shopping-list DB as defined by the script.js file.
 
 #### Q625. Have you been able to debug the code of the Lambda function? If the answer is yes, check that you are using the root API keys. Erase such keys and create a new testing user with the required permissions.
 `Answer:`
