@@ -24,4 +24,19 @@ Participant Members:
 `Answer:`
 
 
-## Task 6.2 Bootstrap the creation of your web server
+## Task 6.2: Serverless example
+
+### Questions
+#### Q621. What is the list of events that the above URL triggers?
+`Answer:`
+
+#### Q622. Does the reply of the above URL match what it should be expected? Why?
+`Answer:`
+
+#### Q623. Explain what happens (actions and parts activated) when you type the URL in your browser to obtain the page updated with the shopping list.
+`Answer:`
+
+#### Q624. Explain what happens (actions and parts activated) when you type a new item in the New Thing box.
+`Answer:`
+
+
