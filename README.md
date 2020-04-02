@@ -37,13 +37,20 @@ Best usage of load balancing is when used in parallel with auto-scaling, since i
 `Answer:` We end the use of the AWS resources by setting the 'Terminated processes' option to Terminate in the Auto-scaling group, which allows us to manually terminate the image AMIs without them being recreated by the auto-scaling group.
 
 #### Q615. Create a piece of code (Python or bash) to reproduce the above steps required to launch a new set of web servers with a load balancer. Start using the AMI that you have already created.
-`Answer:`
+`Answer:` Following is the code of the solution which was inspired by the `boto` documentation and the github repository of Mr. Numan
+
 ```
 conn_elb.create_load_balancer(LoadBalancerName=elastic_load_balancer['name'],
                                     AvailabilityZones=zoneStrings,
                                        Listeners=elastic_load_balancer['connection_forwarding'],
                                        SecurityGroups=['load-balancer-sg']
                                        Tags=[{'Project':'ccbda bootstrap','Cost-center':'laboratory'}])
+                                       
+ag = AutoScalingGroup(group_name=autoscaling_group['name'], load_balancers=[elastic_load_balancer['name']],
+                          availability_zones=zoneStrings,
+                          launch_config=lc, min_size=autoscaling_group['min_size'], max_size=autoscaling_group['max_size'])
+conn_as.create_auto_scaling_group(ag)
+
 ```
 
 
