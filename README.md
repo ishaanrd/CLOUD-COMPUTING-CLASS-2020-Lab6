@@ -5,7 +5,16 @@ Participant Members:
 * Ishaan Dwivedi
 * Anant Gupta
 
+*Objective*: To implement and understand the working of `load balancer` along with `auto-scaling` while deploying applications on the cloud.
+
 ## Task 6.1 Bootstrap the creation of your web server
+
+'Load balancing' refers to efficiently distributing incoming network traffic across a group of backend servers, also known as a server farm or server pool. It sits in front the servers and ensures no particular server is overworked or incase of a particular failure, traffic is re-routed to the others.
+
+'Auto-scaling' as the name suggests is a way to automatically scale up or down the number of compute resources that are being allocated to your application based on the traffic it encounters at any given time. 
+
+Best usage of load balancing is when used in parallel with auto-scaling, since in absence of the latter, you’ll have to know ahead of time how much capacity you need so you can keep additional instances running and registered with the load balancer to serve higher loads. 
+
 
 ### Questions
 #### Q611. What happens when you use https://your-load-balancer-url instead of http://your-load-balancer-url ? Why does that happen? How could you fix it?
