@@ -20,8 +20,13 @@ Best usage of load balancing is when used in parallel with auto-scaling, since i
 #### Q611. What happens when you use https://your-load-balancer-url instead of http://your-load-balancer-url ? Why does that happen? How could you fix it?
 `Answer:` When trying to use the HTTPS link, the browser throws an Invalid Certificate Error (ERR_CERT_INVALID) as shown in the screenshot below. This happends due to the fact that we are using a self-generated SSL certificate that the browser uses as a means to identify a secure connection. This can be fixed by purchasing a certificate that allows the browser to assure the security of the connection.
 
+![Q611 screenshot](images/q611.png)
+
 #### Q612. Stop all three EC2 instances and wait aprox. 5 minutes. What happens? Why?
-`Answer:` On stopping the 3 EC2 instances, althought the primary AMI remains stopped, the image instances created as a result of the Auto-scaling group are terminated and 2 new instances are automatically generated (screenshot below). This happens since we have an active auto-scaling group with a default desired running instances count of 2, hence the instances are recreated when we manually stop them
+`Answer:` On stopping the 3 EC2 instances, althought the primary AMI remains stopped, the image instances created as a result of the Auto-scaling group are terminated and 2 new instances are automatically generated (screenshot below). This happens since we have an active auto-scaling group with a default desired running instances count of 2, hence the instances are recreated when we manually stop them.
+
+![Q612 screenshot](images/q612.png)
+
 
 #### Q613. Terminate all three EC2 instances and wait aprox. 5 minutes. What happens? Why?
 `Answer:` On terminating the 3 EC2 instances, although the primary AMI terminates, the image instances created as a result of the Auto-scaling group are terminated and 2 new instances are automatically generated (screenshot below). This happens since we have an active auto-scaling group with a default desired running instances count of 2, hence the instances are recreated when we manually terminate them.
