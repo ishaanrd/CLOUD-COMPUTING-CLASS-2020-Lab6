@@ -38,6 +38,13 @@ Best usage of load balancing is when used in parallel with auto-scaling, since i
 
 #### Q615. Create a piece of code (Python or bash) to reproduce the above steps required to launch a new set of web servers with a load balancer. Start using the AMI that you have already created.
 `Answer:`
+```
+conn_elb.create_load_balancer(LoadBalancerName=elastic_load_balancer['name'],
+                                    AvailabilityZones=zoneStrings,
+                                       Listeners=elastic_load_balancer['connection_forwarding'],
+                                       SecurityGroups=['load-balancer-sg']
+                                       Tags=[{'Project':'ccbda bootstrap','Cost-center':'laboratory'}])
+```
 
 
 ## Task 6.2: Serverless example
