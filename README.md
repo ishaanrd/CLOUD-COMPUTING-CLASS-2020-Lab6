@@ -18,7 +18,7 @@ Best usage of load balancing is when used in parallel with auto-scaling, since i
 
 ### Questions
 #### Q611. What happens when you use https://your-load-balancer-url instead of http://your-load-balancer-url ? Why does that happen? How could you fix it?
-`Answer:`
+`Answer:` When trying to use the HTTPS link, the browser throws an Invalid Certificate Error as shown in the screenshot below. This happends due to the fact that we are using a self-generated SSL certificate that the browser uses as a means to identify a secure connection. This can be fixed by purchasing a certificate that allows the browser to assure the security of the connection.
 
 #### Q612. Stop all three EC2 instances and wait aprox. 5 minutes. What happens? Why?
 `Answer:`
