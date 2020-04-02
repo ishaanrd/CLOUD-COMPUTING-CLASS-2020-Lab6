@@ -44,10 +44,10 @@ Best usage of load balancing is when used in parallel with auto-scaling, since i
 
 ### Questions
 #### Q621. What is the list of events that the above URL triggers?
-`Answer:` 
+`Answer:` The URL loads the index.html file and invokes the 'Loading function' of the lambda function associated with the API gateway.
 
 #### Q622. Does the reply of the above URL match what it should be expected? Why?
-`Answer:`
+`Answer:` Yes the reply matches the expectation. The index.html file defines its layout on the front-end and the associated lambda function establishes the connection with the Dynamo DB at the back-end.
 
 #### Q623. Explain what happens (actions and parts activated) when you type the URL in your browser to obtain the page updated with the shopping list.
 `Answer:`
