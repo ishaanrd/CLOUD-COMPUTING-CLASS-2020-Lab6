@@ -24,7 +24,7 @@ Best usage of load balancing is when used in parallel with auto-scaling, since i
 `Answer:` On stopping the 3 EC2 instances, althought the primary AMI remains stopped, the image instances created as a result of the Auto-scaling group are terminated and 2 new instances are automatically generated (screenshot below). This happens since we have an active auto-scaling group with a default desired running instances count of 2, hence the instances are recreated when we manually stop them
 
 #### Q613. Terminate all three EC2 instances and wait aprox. 5 minutes. What happens? Why?
-`Answer:` `Answer:` On terminating the 3 EC2 instances, although the primary AMI terminates, the image instances created as a result of the Auto-scaling group are terminated and 2 new instances are automatically generated (screenshot below). This happens since we have an active auto-scaling group with a default desired running instances count of 2, hence the instances are recreated when we manually terminate them.
+`Answer:` On terminating the 3 EC2 instances, although the primary AMI terminates, the image instances created as a result of the Auto-scaling group are terminated and 2 new instances are automatically generated (screenshot below). This happens since we have an active auto-scaling group with a default desired running instances count of 2, hence the instances are recreated when we manually terminate them.
 
 #### Q614. How are you going to end this section regarding the use of AWS resources?
 `Answer:` We end the use of the AWS resources by setting the 'Terminated processes' option to Terminate in the Auto-scaling group, which allows us to manually terminate the image AMIs without them being recreated by the auto-scaling group.
