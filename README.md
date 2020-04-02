@@ -21,13 +21,13 @@ Best usage of load balancing is when used in parallel with auto-scaling, since i
 `Answer:` When trying to use the HTTPS link, the browser throws an Invalid Certificate Error as shown in the screenshot below. This happends due to the fact that we are using a self-generated SSL certificate that the browser uses as a means to identify a secure connection. This can be fixed by purchasing a certificate that allows the browser to assure the security of the connection.
 
 #### Q612. Stop all three EC2 instances and wait aprox. 5 minutes. What happens? Why?
-`Answer:`
+`Answer:` On stopping the 3 EC2 instances, althought the primary AMI remains stopped, the image instances created as a result of the Auto-scaling group are terminated and 2 new instances are automatically generated (screenshot below). This happens since we have an active auto-scaling group with a default desired running instances count of 2, hence the instances are recreated when we manually stop them
 
 #### Q613. Terminate all three EC2 instances and wait aprox. 5 minutes. What happens? Why?
-`Answer:`
+`Answer:` `Answer:` On terminating the 3 EC2 instances, although the primary AMI terminates, the image instances created as a result of the Auto-scaling group are terminated and 2 new instances are automatically generated (screenshot below). This happens since we have an active auto-scaling group with a default desired running instances count of 2, hence the instances are recreated when we manually terminate them.
 
 #### Q614. How are you going to end this section regarding the use of AWS resources?
-`Answer:`
+`Answer:` We end the use of the AWS resources by setting the 'Terminated processes' option to Terminate in the Auto-scaling group, which allows us to manually terminate the image AMIs without them being recreated by the auto-scaling group.
 
 #### Q615. Create a piece of code (Python or bash) to reproduce the above steps required to launch a new set of web servers with a load balancer. Start using the AMI that you have already created.
 `Answer:`
