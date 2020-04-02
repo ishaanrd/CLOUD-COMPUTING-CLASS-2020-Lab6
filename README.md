@@ -37,7 +37,21 @@ Best usage of load balancing is when used in parallel with auto-scaling, since i
 `Answer:` We end the use of the AWS resources by setting the 'Terminated processes' option to Terminate in the Auto-scaling group, which allows us to manually terminate the image AMIs without them being recreated by the auto-scaling group.
 
 #### Q615. Create a piece of code (Python or bash) to reproduce the above steps required to launch a new set of web servers with a load balancer. Start using the AMI that you have already created.
-`Answer:`
+`Answer:` Following is the code of the solution which was inspired by the `boto` documentation and the [github repository](https://gist.github.com/numan/1086984/8f41a0ee3ed2d1b6ea93b77b8ad6815d69269086) of Mr. Numan
+
+```
+conn_elb.create_load_balancer(LoadBalancerName=elastic_load_balancer['name'],
+                                    AvailabilityZones=zoneStrings,
+                                       Listeners=elastic_load_balancer['connection_forwarding'],
+                                       SecurityGroups=['load-balancer-sg']
+                                       Tags=[{'Project':'ccbda bootstrap','Cost-center':'laboratory'}])
+                                       
+ag = AutoScalingGroup(group_name=autoscaling_group['name'], load_balancers=[elastic_load_balancer['name']],
+                          availability_zones=zoneStrings,
+                          launch_config=lc, min_size=autoscaling_group['min_size'], max_size=autoscaling_group['max_size'])
+conn_as.create_auto_scaling_group(ag)
+
+```
 
 
 ## Task 6.2: Serverless example
@@ -56,10 +70,18 @@ Best usage of load balancing is when used in parallel with auto-scaling, since i
 `Answer:` On clicking the 'add someThing else' button, the POST Item API gateway call is invoked to the Dynamo DB at the backend and the contents of the text box in the browser are fetched and added as a new item in the shopping-list DB as defined by the script.js file.
 
 #### Q625. Have you been able to debug the code of the Lambda function? If the answer is yes, check that you are using the root API keys. Erase such keys and create a new testing user with the required permissions.
-`Answer:`
+`Answer:` One of the 
 
 #### Q626. What are the minimum permissions that the user's API keys needs to execute the Lambda function locally?
 `Answer:`
 
 #### Q627. Create a piece of code (Python or bash) to reproduce the above steps required to launch a new AWS Lambda function and AWS API gateway.
 `Answer:`
+```
+import boto3
+client = boto3.client('lambda') # accessing lambda funtion
+
+response = client.create_function(FunctionName='serverless-cotroller',Runtime='python3.6',
+                                  Role='arn:aws:iam::952638762329:role/service-role/serverless-controller-role',
+                                  Handler='lambda_function.lambda_handler')
+```
