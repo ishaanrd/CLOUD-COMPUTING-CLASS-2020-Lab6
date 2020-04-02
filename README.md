@@ -44,7 +44,7 @@ Best usage of load balancing is when used in parallel with auto-scaling, since i
 
 ### Questions
 #### Q621. What is the list of events that the above URL triggers?
-`Answer:`
+`Answer:` 
 
 #### Q622. Does the reply of the above URL match what it should be expected? Why?
 `Answer:`
@@ -55,4 +55,11 @@ Best usage of load balancing is when used in parallel with auto-scaling, since i
 #### Q624. Explain what happens (actions and parts activated) when you type a new item in the New Thing box.
 `Answer:`
 
+#### Q625. Have you been able to debug the code of the Lambda function? If the answer is yes, check that you are using the root API keys. Erase such keys and create a new testing user with the required permissions.
+`Answer:`
 
+#### Q626. What are the minimum permissions that the user's API keys needs to execute the Lambda function locally?
+`Answer:`
+
+#### Q627. Create a piece of code (Python or bash) to reproduce the above steps required to launch a new AWS Lambda function and AWS API gateway.
+`Answer:`
