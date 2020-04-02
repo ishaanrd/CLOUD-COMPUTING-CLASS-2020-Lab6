@@ -5,6 +5,8 @@ Participant Members:
 * Ishaan Dwivedi
 * Anant Gupta
 
+*Note*: One of the students was making  use of the free-tier student account whereas the other had a root user account. This resulted in experiencing different challenges on the way. For example, the free-tier account is only allowed to create `instance types` of `micro`, unlike the `nano` suggested by the professor's documentation.
+
 *Objective*: To implement and understand the working of `load balancer` along with `auto-scaling` while deploying applications on the cloud.
 
 ## Task 6.1 Bootstrap the creation of your web server
@@ -18,7 +20,7 @@ Best usage of load balancing is when used in parallel with auto-scaling, since i
 
 ### Questions
 #### Q611. What happens when you use https://your-load-balancer-url instead of http://your-load-balancer-url ? Why does that happen? How could you fix it?
-`Answer:` When trying to use the HTTPS link, the browser throws an Invalid Certificate Error (ERR_CERT_INVALID) as shown in the screenshot below. This happends due to the fact that we are using a self-generated SSL certificate that the browser uses as a means to identify a secure connection. This can be fixed by purchasing a valid SSL certificate that allows the browser to assure the security of the connection.
+`Answer:` When trying to use the HTTPS link, the browser throws an Invalid Certificate Error (ERR_CERT_INVALID) as shown in the screenshot below. This happends due to the fact that we are using a self-generated SSL certificate that the browser uses as a means to identify a secure connection. This can be fixed by purchasing a certificate that allows the browser to assure the security of the connection.
 
 ![Q611 screenshot](images/q611.png)
 
@@ -70,7 +72,7 @@ conn_as.create_auto_scaling_group(ag)
 `Answer:` On clicking the 'add someThing else' button, the POST Item API gateway call is invoked to the Dynamo DB at the backend and the contents of the text box in the browser are fetched and added as a new item in the shopping-list DB as defined by the script.js file.
 
 #### Q625. Have you been able to debug the code of the Lambda function? If the answer is yes, check that you are using the root API keys. Erase such keys and create a new testing user with the required permissions.
-`Answer:` One of the 
+`Answer:` One of the accounts being free-tier and the other being root. One of the accounts we not able to further create sub-users, whereas from the other account intially we were to debug successfully and following which we created a restrictive user. In this case, it demanded the necessary permissions to be passed.
 
 #### Q626. What are the minimum permissions that the user's API keys needs to execute the Lambda function locally?
 `Answer:`
