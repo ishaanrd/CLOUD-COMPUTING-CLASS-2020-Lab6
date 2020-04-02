@@ -70,10 +70,18 @@ conn_as.create_auto_scaling_group(ag)
 `Answer:` On clicking the 'add someThing else' button, the POST Item API gateway call is invoked to the Dynamo DB at the backend and the contents of the text box in the browser are fetched and added as a new item in the shopping-list DB as defined by the script.js file.
 
 #### Q625. Have you been able to debug the code of the Lambda function? If the answer is yes, check that you are using the root API keys. Erase such keys and create a new testing user with the required permissions.
-`Answer:`
+`Answer:` One of the 
 
 #### Q626. What are the minimum permissions that the user's API keys needs to execute the Lambda function locally?
 `Answer:`
 
 #### Q627. Create a piece of code (Python or bash) to reproduce the above steps required to launch a new AWS Lambda function and AWS API gateway.
 `Answer:`
+```
+import boto3
+client = boto3.client('lambda') # accessing lambda funtion
+
+response = client.create_function(FunctionName='serverless-cotroller',Runtime='python3.6',
+                                  Role='arn:aws:iam::952638762329:role/service-role/serverless-controller-role',
+                                  Handler='lambda_function.lambda_handler')
+```
