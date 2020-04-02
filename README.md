@@ -75,7 +75,8 @@ conn_as.create_auto_scaling_group(ag)
 `Answer:` One of the accounts being free-tier and the other being root. One of the accounts we not able to further create sub-users, whereas from the other account intially we were to debug successfully and following which we created a restrictive user. In this case, it demanded the necessary permissions to be passed.
 
 #### Q626. What are the minimum permissions that the user's API keys needs to execute the Lambda function locally?
-`Answer:` Due to updates from AWS, lambda cannot run in 'VPC', meaning the EC2 instance needs to wide array of inbound security group. One possible solution could giving the `AWS Simple Systems Manager(SSM)` permission.
+`Answer:` Due to updates from AWS, lambda cannot run in 'VPC', meaning the EC2 instance needs to wide array of inbound security group. One possible solution could giving the `AWS Simple Systems Manager(SSM)` permission. 
+Second, possible solution can be setting up of the 'EC2 run' command accessible via the web interface.
 
 #### Q627. Create a piece of code (Python or bash) to reproduce the above steps required to launch a new AWS Lambda function and AWS API gateway.
 `Answer:`
@@ -87,3 +88,6 @@ response = client.create_function(FunctionName='serverless-cotroller',Runtime='p
                                   Role='arn:aws:iam::952638762329:role/service-role/serverless-controller-role',
                                   Handler='lambda_function.lambda_handler')
 ```
+
+### Challenges
+Time spent on the lab was more than 7 hours, mainly due configuring the settings, trying to grasp the nitty-gritty details of setting load balancer, auto-scaling and the vital lambda function. Usage of 2 different type of AWS accounts--free-tier, root, made synchronisation difficult but at the same intersting as it exposed to different error codes, prompting to research more and in process learn more.
